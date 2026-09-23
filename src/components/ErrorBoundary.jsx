@@ -21,25 +21,6 @@ export default class ErrorBoundary extends React.Component {
       }
 
       return (
-        this.props.fallback || (
-          <div style={{ padding: '2rem', textAlign: 'center', color: '#94a3b8' }}>
-            <p>Something went wrong loading this component.</p>
-            <button
-              type="button"
-              onClick={() => this.setState({ hasError: false, error: null })}
-              style={{
-                marginTop: '1rem',
-                padding: '0.5rem 1rem',
-                borderRadius: '8px',
-                background: '#38bdf8',
-                color: '#090d16',
-                border: 'none',
-                cursor: 'pointer',
-                fontWeight: 600,
-              }}
-            >
-              Try Again
-            </button>
         <div className="main-content" style={{ padding: '6rem 1.5rem', textAlign: 'center' }}>
           <div
             style={{
@@ -79,7 +60,6 @@ export default class ErrorBoundary extends React.Component {
               </button>
             </div>
           </div>
-        )
         </div>
       )
     }
@@ -87,4 +67,3 @@ export default class ErrorBoundary extends React.Component {
     return this.props.children
   }
 }
-

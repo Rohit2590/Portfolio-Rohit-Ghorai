@@ -5,12 +5,8 @@ import {
   Moon,
   Menu,
   X,
-  Sparkles,
   Layers,
-  Code2,
   Mail,
-  UserCheck,
-  ExternalLink,
 } from 'lucide-react'
 
 export default function Navbar({ theme, toggleTheme }) {
@@ -65,7 +61,6 @@ export default function Navbar({ theme, toggleTheme }) {
               <Link to="/" className="nav-link">
                 Home
               </Link>
-              <Link to="/projects" className="nav-link active">
               <a href="/#about" className="nav-link">
                 About
               </a>
@@ -105,7 +100,6 @@ export default function Navbar({ theme, toggleTheme }) {
           </button>
 
           {/* Contact Button */}
-          <a href="#contact" className="btn-nav-cta">
           <a
             href={location.pathname === '/' ? '#contact' : '/#contact'}
             className="btn-nav-cta"
@@ -134,7 +128,6 @@ export default function Navbar({ theme, toggleTheme }) {
             <Link to="/" className="mobile-nav-link" onClick={closeMenu}>
               Home
             </Link>
-            <a href="#about" className="mobile-nav-link" onClick={closeMenu}>
             <a
               href={location.pathname === '/' ? '#about' : '/#about'}
               className="mobile-nav-link"
@@ -142,7 +135,6 @@ export default function Navbar({ theme, toggleTheme }) {
             >
               About
             </a>
-            <a href="#projects" className="mobile-nav-link" onClick={closeMenu}>
             <a
               href={location.pathname === '/' ? '#projects' : '/#projects'}
               className="mobile-nav-link"
@@ -153,7 +145,6 @@ export default function Navbar({ theme, toggleTheme }) {
             <Link to="/projects" className="mobile-nav-link" onClick={closeMenu}>
               All Projects (12)
             </Link>
-            <a href="#skills" className="mobile-nav-link" onClick={closeMenu}>
             <a
               href={location.pathname === '/' ? '#skills' : '/#skills'}
               className="mobile-nav-link"
@@ -161,7 +152,6 @@ export default function Navbar({ theme, toggleTheme }) {
             >
               Skills & Tech
             </a>
-            <a href="#contact" className="mobile-nav-link" onClick={closeMenu}>
             <a
               href={location.pathname === '/' ? '#contact' : '/#contact'}
               className="mobile-nav-link"
@@ -186,4 +176,3 @@ export default function Navbar({ theme, toggleTheme }) {
     </header>
   )
 }
-

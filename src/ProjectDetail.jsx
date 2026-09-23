@@ -28,10 +28,6 @@ import {
 } from 'lucide-react'
 import { Github } from './components/SocialIcons'
 import { allProjects } from './projectsData'
-import ThreeCanvas from './components/ThreeCanvas'
-import ErrorBoundary from './components/ErrorBoundary'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
 import './styles.css'
 
 function ProjectDetailDemo({ slug }) {
@@ -406,38 +402,12 @@ function ProjectDetailDemo({ slug }) {
 export default function ProjectDetail() {
   const { slug } = useParams()
   const [deviceMode, setDeviceMode] = useState('desktop') // 'desktop' | 'mobile'
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('portfolio-theme') || 'dark'
-  })
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('portfolio-theme', theme)
-  }, [theme])
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
-  }
 
   const projectIndex = allProjects.findIndex((item) => item.slug === slug)
   const project = allProjects[projectIndex]
 
   if (!project) {
     return (
-      <div className="portfolio-app">
-        <Navbar theme={theme} toggleTheme={toggleTheme} />
-        <main className="main-content">
-          <div className="empty-results-box" style={{ marginTop: '5rem' }}>
-            <h2>Project Not Found</h2>
-            <p>We couldn't find the project you are looking for.</p>
-            <Link to="/projects" className="btn primary">
-              <ArrowLeft size={16} />
-              <span>Back to Projects Directory</span>
-            </Link>
-          </div>
-        </main>
-        <Footer />
-      </div>
       <main className="main-content">
         <div className="empty-results-box" style={{ marginTop: '5rem' }}>
           <h2>Project Not Found</h2>
@@ -456,20 +426,6 @@ export default function ProjectDetail() {
     projectIndex < allProjects.length - 1 ? allProjects[projectIndex + 1] : null
 
   return (
-    <div className="portfolio-app">
-      {/* Full-Screen Animated Three.js 3D Canvas Background */}
-      <ErrorBoundary fallback={null}>
-        <ThreeCanvas currentTheme={theme} />
-      </ErrorBoundary>
-
-      {/* Background ambient lighting */}
-      <div className="ambient-glow glow-1" aria-hidden="true" />
-      <div className="ambient-glow glow-2" aria-hidden="true" />
-      <div className="ambient-glow glow-3" aria-hidden="true" />
-
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
-
-      <main className="main-content project-detail-page">
     <main className="main-content project-detail-page">
         {/* Breadcrumb Navigation */}
         <div className="breadcrumb-nav">
@@ -628,9 +584,5 @@ export default function ProjectDetail() {
           )}
         </div>
       </main>
-
-      <Footer />
-    </div>
   )
-    )
 }
