@@ -8,6 +8,7 @@ import {
   Layers,
   Mail,
 } from 'lucide-react'
+import { allProjects } from '../projectsData'
 
 export default function Navbar({ theme, toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -143,7 +144,7 @@ export default function Navbar({ theme, toggleTheme }) {
               Featured Projects
             </a>
             <Link to="/projects" className="mobile-nav-link" onClick={closeMenu}>
-              All Projects (12)
+              All Projects ({allProjects.length})
             </Link>
             <a
               href={location.pathname === '/' ? '#skills' : '/#skills'}
